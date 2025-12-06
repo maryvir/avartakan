@@ -422,9 +422,9 @@ AI-generated content may be incorrect.]
 
 2
 
-[ref1]: Aspose.Words.e3e9c837-ecd3-4866-b2b3-7b04071ef74b.017.jpeg
-[ref2]: Aspose.Words.e3e9c837-ecd3-4866-b2b3-7b04071ef74b.018.jpeg
-[ref3]: Aspose.Words.e3e9c837-ecd3-4866-b2b3-7b04071ef74b.027.jpeg
+[ref1]: media/Aspose.Words.e3e9c837-ecd3-4866-b2b3-7b04071ef74b.017.jpeg
+[ref2]: media/Aspose.Words.e3e9c837-ecd3-4866-b2b3-7b04071ef74b.018.jpeg
+[ref3]: media/Aspose.Words.e3e9c837-ecd3-4866-b2b3-7b04071ef74b.027.jpeg
 [A diagram of a graph
 
-AI-generated content may be incorrect.]: Aspose.Words.e3e9c837-ecd3-4866-b2b3-7b04071ef74b.028.jpeg
+AI-generated content may be incorrect.]: media/Aspose.Words.e3e9c837-ecd3-4866-b2b3-7b04071ef74b.028.jpeg
