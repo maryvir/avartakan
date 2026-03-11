@@ -1,4 +1,3 @@
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -12,10 +11,18 @@ def circles_Voronoi(circles, margin=5):
     t = np.linspace(-3, 3, 1500)
 
     x_edge, y_edge = [], []
-    for (Ox, Oy), r in circles:
+    for i, ((Ox, Oy), r) in enumerate(circles, start=1):
         x = Ox + r*np.cos(alpha)
         y = Oy + r*np.sin(alpha)
         ax.plot(x, y, color='k')
+        ax.plot(Ox, Oy, 'ko', markersize=4)
+        ax.text(
+            Ox, Oy,
+            f"C{i}",
+            fontsize=10,
+            ha='right',
+            va='bottom'
+        )
         x_edge += [Ox - r, Ox + r]
         y_edge += [Oy - r, Oy + r]
 
