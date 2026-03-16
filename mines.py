@@ -9,7 +9,7 @@ def distance(x, y, circle):
 def circles_Voronoi(circles, margin=5):
     fig, ax = plt.subplots(figsize=(10, 10))
     alpha = np.linspace(0, 2*np.pi, 400)
-    t = np.linspace(-8, 8, 2000)
+    t = np.linspace(-8, 8, 1000)
 
     x_edge, y_edge = [], []
     for i, ((Ox, Oy), r) in enumerate(circles, start=1):
@@ -29,6 +29,24 @@ def circles_Voronoi(circles, margin=5):
 
     x_min, x_max = min(x_edge) - margin, max(x_edge) + margin
     y_min, y_max = min(y_edge) - margin, max(y_edge) + margin
+
+    res = 200
+    xs = np.linspace(x_min, x_max, res)
+    ys = np.linspace(y_min, y_max, res)
+    XX, YY = np.meshgrid(xs, ys)
+
+    region = np.zeros_like(XX, dtype=int)
+
+    for i in range(len(circles)):
+        d = distance(XX, YY, circles[i])
+        if i == 0:
+            min_dist = d
+        else:
+            closer = d < min_dist
+            region[closer] = i
+            min_dist = np.minimum(min_dist, d)
+
+    ax.pcolormesh(XX, YY, region, cmap='tab10', shading='auto', alpha=0.2)
 
     n = len(circles)
     for i in range(n):
