@@ -7,10 +7,18 @@ def circles_Voronoi(circles, margin=5):
     alpha = np.linspace(0, 2*np.pi, 400)
 
     x_edge, y_edge = [], []
-    for (Ox, Oy), r in circles:
+    for i, ((Ox, Oy), r) in enumerate(circles, start=1):
         x = Ox + r*np.cos(alpha)
         y = Oy + r*np.sin(alpha)
         ax.plot(x, y, color='k')
+        ax.plot(Ox, Oy, 'ko', markersize=4)
+        ax.text(
+            Ox, Oy,
+            f"C{i}",
+            fontsize=10,
+            ha='right',
+            va='bottom'
+        )
         x_edge += [Ox - r, Ox + r]
         y_edge += [Oy - r, Oy + r]
 
@@ -29,8 +37,18 @@ def circles_Voronoi(circles, margin=5):
       all_dists.append(np.hypot(X - Ox, Y - Oy) - r)
     
     closest = np.argmin(all_dists, axis=0)
-    ax.contourf(X, Y, closest, levels=np.arange(len(circles)) + 0.5)
-    ax.contour(X, Y, closest, levels=np.arange(len(circles)) + 0.5, colors='k')
+    ax.contourf(
+    X, Y, closest,
+    levels=np.arange(len(circles)) + 0.5,
+    cmap='Pastel1'
+    )
+
+    ax.contour(
+        X, Y, closest,
+        levels=np.arange(len(circles)) + 0.5,
+        colors='k'
+    )
+    
 
     ax.set_aspect('equal', adjustable='box')
     plt.show()
@@ -38,8 +56,8 @@ def circles_Voronoi(circles, margin=5):
 circles = [
     ((-3, 0), 2),
     ((5, 0), 3),
-    ((0, 7), 2),
-    ((-7, -6), 2),
+    ((0, 7), 4),
+    ((-7, -6), 1),
     ((8, -5), 2)
 ]
 
